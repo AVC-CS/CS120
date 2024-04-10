@@ -1,30 +1,27 @@
-#include		<iostream>
-using	namespace std;
-
-
-int	main()
+#include 	<iostream>
+#include 	<string>
+using namespace std;
+int main()
 {
-	string	strobj1;
-	string	strobj2("C++ Programming");
-	char	cstr[] = "Computing Fundamentals";
-	string	strobj3(cstr, 9);
+	string 	str1="abcdef,ghi,jklm,";
+	string 	splitstr;
+	int 	found, start;
 
-	strobj1 = "2019 Fall Semester";
+	found = str1.find(',');
+	splitstr = str1.substr(0,found);
+	cout << splitstr << endl;  //* abc
+	start = found+1;
 
-	cout << "string object 1 " << strobj1 << endl;
-	cout << "string object 2 " << strobj2 << endl;
-	cout << "string object 3 " << strobj3 << endl;
+	found = str1.find(',', found+1);
+	splitstr = str1.substr(start, found-start);
+	cout << splitstr << endl;
 
+	start = 0;
+	while( (found = str1.find(',', start)) != string::npos){
+		splitstr = str1.substr(start, found-start) ;
+		cout << splitstr << endl;
+		start = found + 1;
+	}
 
-	strobj1 += strobj2 ;
-	cout << strobj1 << endl;
-	if ( strobj1 > strobj3)
-		cout << strobj1 << endl;
-	else
-		cout << strobj3 << endl;
-
-
-	for(int i=0;i<strobj1.length(); i++)
-		cout << strobj1[i] << endl;
 
 }
