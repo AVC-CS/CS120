@@ -15,7 +15,7 @@ int main() {
     C1 obj1, obj2;
     obj1.ptr = make_unique<int>(10);
     *obj1.ptr = 99;
-    obj2 = obj1;
+    obj2 = std::move(obj1);
     cout << *obj2.ptr << endl;
     // cout << *obj1.ptr << endl;
     if (obj1.ptr) {
